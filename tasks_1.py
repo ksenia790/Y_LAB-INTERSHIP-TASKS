@@ -1,13 +1,14 @@
 '''Задача №1.
 Написать метод domain_name, который вернет домен из url адреса.'''
 
+
 from urllib.parse import urlparse
 
 
-url1: str = "http://github.com/carbonfive/raygun"
-url2: str = "http://www.zombie-bites.com"         
-url3: str = "https://www.cnet.com" 
-url4: str = "www.xakep.ru"
+url_1: str = "http://github.com/carbonfive/raygun"
+url_2: str = "http://www.zombie-bites.com"         
+url_3: str = "https://www.cnet.com" 
+url_4: str = "www.xakep.ru"
 
 
 def domain_name(url: str) -> str:
@@ -23,7 +24,7 @@ def domain_name(url: str) -> str:
         dom_name = ''.join(url.split('.')[1])
         return dom_name
 
-print(domain_name(url3))
+print(domain_name(url_3))
 
 
 ''' Задача №2. 
@@ -31,10 +32,10 @@ print(domain_name(url3))
 (integer) и возвращает строковое представление его в виде IPv4-адреса.'''
 
 
-num1: int = 2154959208
-num2 = 32
-num3 = 0
-int32: str = "{:032b}".format(num1)
+num_1: int = 2154959208
+num_2: int = 32
+num_3: int = 0
+int32: str = "{:032b}".format(num_1)
 
 
 def int32_to_ip(int32: str) -> str:
@@ -44,4 +45,24 @@ def int32_to_ip(int32: str) -> str:
 
 print(int32_to_ip(int32))
 
+
+'''Задача №3. 
+Написать метод zeros, который принимает на вход целое число (integer) и
+возвращает количество конечных нулей в факториале (N! = 1 * 2 * 3 * ... * N) 
+заданного числа'''
+
+
+n: int = 10 #int(input("Please type some number: "))
+
+def zeros(n: int) -> int:
+    if (n < 0):
+        return -1
+ 
+    count = 0
+    while(n >= 5):
+        n //= 5
+        count += n
+    return count
+
+print(zeros(n))
 
