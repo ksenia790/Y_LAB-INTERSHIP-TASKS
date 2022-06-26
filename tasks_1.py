@@ -1,7 +1,8 @@
 '''Задача №1.
 Написать метод domain_name, который вернет домен из url адреса.'''
-
 import re
+
+
 def domain_name(url):
     return re.search('(https?://)?(www\d?\.)?(?P<name>[\w-]+)\.', url).group('name')
 
@@ -12,6 +13,7 @@ def domain_name(url):
 
 
 num: int = 32
+
 
 def int32_to_ip(num: int) -> str:
     int32: str = "{:032b}".format(num)
@@ -30,6 +32,7 @@ print(int32_to_ip(num))
 
 n: int = 10 #int(input())
 
+
 def zeros(n: int) -> int:
     count = 0
     while(n >= 5):
@@ -47,7 +50,9 @@ print(zeros(n))
 
 from itertools import combinations
 
+
 s = 'bbanananas'
+
 
 def bananas(s):
     result = []
@@ -76,6 +81,7 @@ import math
 primesL: list = [2, 5, 7]
 limit: int = 500
 
+
 def count_find_num(primesL: list, limit: int) -> list:
     result = []
     for i in range(len(primesL), 30):
@@ -88,4 +94,5 @@ def count_find_num(primesL: list, limit: int) -> list:
         return []
     else:
         return [len(result), max(result)]
+
 print(count_find_num(primesL, limit))
