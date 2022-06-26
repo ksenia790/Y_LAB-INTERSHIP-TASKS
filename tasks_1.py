@@ -52,7 +52,7 @@ print(int32_to_ip(int32))
 заданного числа'''
 
 
-n: int = 10 #int(input("Please type some number: "))
+n: int = 10 #int(input())
 
 def zeros(n: int) -> int:
     if (n < 0):
@@ -66,3 +66,38 @@ def zeros(n: int) -> int:
 
 print(zeros(n))
 
+
+'''Задача №4. 
+Написать метод bananas, который принимает на вход строку и
+возвращает количество слов «banana» в строке.'''
+
+
+
+
+'''Задача №5.
+Написать метод count_find_num, который принимает на вход 
+список простых множителей (primesL) и целое число,
+предел (limit), после чего попробуйте сгенерировать по порядку все числа.
+Меньшие значения предела, которые имеют все и только простые 
+множители простых чисел primesL.'''
+
+import itertools
+import math
+
+primesL: list = [2, 5, 7]
+limit: int = 500
+
+
+def count_find_num(primesL: list, limit: int) -> list:
+    result = []
+    for i in range(len(primesL), max(primesL)):
+        for v in itertools.combinations_with_replacement(primesL, i):
+            if set(primesL) == set(v):
+                num = math.prod(v)
+                if num <= limit:
+                    result.append(num)
+    if len(result) == 0:
+        return []
+    else:
+        return [len(result), max(result)]
+print(count_find_num(primesL, limit))
