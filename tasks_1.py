@@ -5,26 +5,24 @@
 from urllib.parse import urlparse
 
 
-url_1: str = "http://github.com/carbonfive/raygun"
-url_2: str = "http://www.zombie-bites.com"         
-url_3: str = "https://www.cnet.com" 
-url_4: str = "www.xakep.ru"
+url: str = "http://google.co.jp"
 
 
 def domain_name(url: str) -> str:
     if "http" in url or "https" in url:
-        result = urlparse(url).netloc
-        if url.count('.') > 1:
-            dom_name  = ''.join(result.split('.')[1])
-            return dom_name
+        parsed = urlparse(url).netloc
+        result = parsed.split('.')
+        if len(result) == 2:
+            dom_name  = result[0]
+        if len(result) > 2 and 'www' in result:
+            dom_name = result[1]
         else:
-            dom_name = ''.join(result.split('.')[0])
-            return dom_name
+            dom_name = result[0]
     else:
         dom_name = ''.join(url.split('.')[1])
-        return dom_name
+    return dom_name
 
-print(domain_name(url_3))
+print(domain_name(url))
 
 
 ''' Задача №2. 
