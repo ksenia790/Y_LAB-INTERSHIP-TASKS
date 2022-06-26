@@ -84,13 +84,10 @@ print(zeros(n))
 import itertools
 import math
 
-primesL: list = [2, 5, 7]
-limit: int = 500
-
 
 def count_find_num(primesL: list, limit: int) -> list:
     result = []
-    for i in range(len(primesL), max(primesL)):
+    for i in range(len(primesL), 30):
         for v in itertools.combinations_with_replacement(primesL, i):
             if set(primesL) == set(v):
                 num = math.prod(v)
