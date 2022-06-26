@@ -1,28 +1,9 @@
 '''Задача №1.
 Написать метод domain_name, который вернет домен из url адреса.'''
 
-
-from urllib.parse import urlparse
-
-
-url: str = "http://google.co.jp"
-
-
-def domain_name(url: str) -> str:
-    if "http" in url or "https" in url:
-        parsed = urlparse(url).netloc
-        result = parsed.split('.')
-        if len(result) == 2:
-            dom_name  = result[0]
-        if len(result) > 2 and 'www' in result:
-            dom_name = result[1]
-        else:
-            dom_name = result[0]
-    else:
-        dom_name = ''.join(url.split('.')[1])
-    return dom_name
-
-print(domain_name(url))
+import re
+def domain_name(url):
+    return re.search('(https?://)?(www\d?\.)?(?P<name>[\w-]+)\.', url).group('name')
 
 
 ''' Задача №2. 
