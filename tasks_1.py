@@ -32,18 +32,15 @@ print(domain_name(url_3))
 (integer) и возвращает строковое представление его в виде IPv4-адреса.'''
 
 
-num_1: int = 2154959208
-num_2: int = 32
-num_3: int = 0
-int32: str = "{:032b}".format(num_1)
+num: int = 32
 
-
-def int32_to_ip(int32: str) -> str:
+def int32_to_ip(num: int) -> str:
+    int32: str = "{:032b}".format(num)
     ip_addr = [str(int(int32[i:i+8], 2)) for i in range(0,32,8)]
     result = '.'.join(ip_addr)
     return result
 
-print(int32_to_ip(int32))
+print(int32_to_ip(num))
 
 
 '''Задача №3. 
