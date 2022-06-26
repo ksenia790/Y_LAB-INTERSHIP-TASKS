@@ -45,7 +45,22 @@ print(zeros(n))
 возвращает количество слов «banana» в строке.'''
 
 
+from itertools import combinations
 
+s = 'bbanananas'
+
+def bananas(s):
+    result = []
+    for i in combinations(range(len(s)), len(s)-6):
+        x = list(s)
+        for j in i:
+            x[j] = '-'
+        x = ''.join(x)
+        if x.replace('-', '') == 'banana':
+            result.append(x)
+    return result
+
+print(bananas(s))
 
 '''Задача №5.
 Написать метод count_find_num, который принимает на вход 
@@ -57,6 +72,9 @@ print(zeros(n))
 import itertools
 import math
 
+
+primesL: list = [2, 5, 7]
+limit: int = 500
 
 def count_find_num(primesL: list, limit: int) -> list:
     result = []
